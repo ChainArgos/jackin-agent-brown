@@ -16,3 +16,11 @@ plugins = [
   "commit-commands@claude-plugins-official",
   "claude-code-setup@claude-plugins-official",
 ]
+
+[hooks]
+pre_launch = "hooks/pre-launch.sh"
+
+[env.CONTEXT7_API_KEY]
+interactive = true
+skippable = true
+prompt = "Context7 API key (leave empty to skip MCP setup)"
