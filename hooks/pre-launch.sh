@@ -3,7 +3,10 @@ set -euo pipefail
 
 # Derive POSTGRESQL_DB_HOST from the DinD sidecar hostname so Gradle build
 # files can connect to PostgreSQL running inside docker-compose.
-if [ -n "${DOCKER_HOST:-}" ]; then
+# TODO: Replace with JACKIN_DIND_HOSTNAME once jackin-project/jackin#32 lands.
+if [ -n "${JACKIN_DIND_HOSTNAME:-}" ]; then
+    export POSTGRESQL_DB_HOST="$JACKIN_DIND_HOSTNAME"
+elif [ -n "${DOCKER_HOST:-}" ]; then
     export POSTGRESQL_DB_HOST
     POSTGRESQL_DB_HOST="$(echo "$DOCKER_HOST" | sed 's|tcp://||;s|:.*||')"
 fi
