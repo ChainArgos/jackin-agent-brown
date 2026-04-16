@@ -53,8 +53,8 @@ RUN curl -fsSL https://get.tessl.io | sh
 RUN mise exec node@lts -- npm install -g ctx7
 
 # Docker convenience functions
-COPY docker-helpers.zsh /tmp/docker-helpers.zsh
-RUN cat /tmp/docker-helpers.zsh >> /home/claude/.zshrc && rm /tmp/docker-helpers.zsh
+COPY --chown=claude:claude zshrc.d/docker-helpers.zsh /home/claude/.zshrc.d/docker-helpers.zsh
+RUN echo 'source /home/claude/.zshrc.d/docker-helpers.zsh' >> /home/claude/.zshrc
 
 # SpecStory CLI for session history capture
 ARG SPECSTORY_VERSION=1.12.0

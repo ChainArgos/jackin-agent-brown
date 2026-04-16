@@ -1,4 +1,3 @@
-
 # Stop and remove all Docker containers
 docker_stop_rm_all() {
   docker stop $(docker ps -qa) 2>/dev/null
