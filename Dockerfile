@@ -47,7 +47,8 @@ RUN mise use -g cargo:just
 RUN mise use -g cargo:bottom
 
 # Tessl CLI
-RUN curl -fsSL https://get.tessl.io | sh
+ARG TESSL_VERSION=0.77.0
+RUN curl -fsSL https://get.tessl.io | TESSL_VERSION="$TESSL_VERSION" sh
 
 # Global npm packages
 RUN mise exec node@lts -- npm install -g ctx7
@@ -55,10 +56,3 @@ RUN mise exec node@lts -- npm install -g ctx7
 # Docker convenience functions
 COPY --chown=claude:claude zshrc.d/docker-helpers.zsh /home/claude/.zshrc.d/docker-helpers.zsh
 RUN echo 'source /home/claude/.zshrc.d/docker-helpers.zsh' >> /home/claude/.zshrc
-
-# SpecStory CLI for session history capture
-ARG SPECSTORY_VERSION=1.12.0
-RUN ARCH="$(uname -m)" && \
-    if [ "$ARCH" = "aarch64" ]; then ARCH="arm64"; fi && \
-    curl -fsSL "https://github.com/specstoryai/getspecstory/releases/download/v${SPECSTORY_VERSION}/SpecStoryCLI_Linux_${ARCH}.tar.gz" \
-    | tar -xz -C /home/claude/.local/bin specstory
