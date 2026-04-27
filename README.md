@@ -20,9 +20,8 @@ jackin load chainargos/agent-brown
 - **Java** Oracle GraalVM 25.0.1 (via mise)
 - **Protobuf compiler** (via mise)
 - **GitHub CLI** (gh)
-- **Cargo tools:** cargo-nextest, ast-grep, rust-script, just, shellfirm, tirith, bottom
+- **Cargo tools:** cargo-nextest, ast-grep, rust-script, just, bottom
 - **Tessl CLI**
-- **SpecStory CLI**
 - **ctx7** (npm)
 
 Shared shell/runtime tools come from `jackin-construct:trixie`.
@@ -43,4 +42,3 @@ The following features from the custom `claude-code-docker/` setup cannot yet be
 |---------|--------|-------|
 | Cloudflare CA cert (system + Java truststore) | **Blocked** | Requires build-time secrets (`--mount=type=secret`) |
 | GitHub token for `protoc` install | **Blocked** | Requires build-time secrets |
-| SpecStory session wrapping | Minor | `specstory run claude -c` wrapper not supported; CLI is installed for manual use |

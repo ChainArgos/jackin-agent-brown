@@ -5,11 +5,9 @@ name = "Agent Brown"
 
 [claude]
 plugins = [
-  "superpowers@claude-plugins-official",
   "code-review@claude-plugins-official",
   "code-simplifier@claude-plugins-official",
   "feature-dev@claude-plugins-official",
-  "ralph-loop@claude-plugins-official",
   "typescript-lsp@claude-plugins-official",
   "rust-analyzer-lsp@claude-plugins-official",
   "claude-md-management@claude-plugins-official",
