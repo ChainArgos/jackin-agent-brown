@@ -20,7 +20,7 @@ jackin load chainargos/agent-brown
 - **Java** Oracle GraalVM 25.0.1 (via mise)
 - **Protobuf compiler** (via mise)
 - **GitHub CLI** (gh)
-- **Cargo tools:** cargo-nextest, ast-grep, rust-script, just, shellfirm, tirith, bottom
+- **Cargo tools:** cargo-nextest, ast-grep, rust-script, just, bottom
 - **Tessl CLI**
 - **ctx7** (npm)
 
